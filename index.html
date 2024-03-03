@@ -78,58 +78,124 @@
             </div>
         </nav>
         <div
-            class="min-h-scree border-4 border-red-600 rounded-[32px] bg-[url('images/bgbanner.png')] bg-bottom bg-contain  bg-no-repeat bg-[#12132D] flex justify-between items-center px-[70px] py-[100px]">
+            class=" border-4 border-red-600 rounded-[32px] bg-[url('images/bgbanner.png')] bg-bottom bg-contain  bg-no-repeat bg-[#12132D] flex justify-between items-center px-[70px] py-[95px]">
 
             <div class="space-y-8">
-                <h1 class="text-white text-[60px] font-black">Welcome to the <br><span class="text-[#797DFC]">ReTro</span>
+                <h1 class="text-white text-[60px] font-black">Welcome to the <br><span
+                        class="text-[#797DFC]">ReTro</span>
                     Forum</h1>
-                <p class="text-[#FFFFFFCC] text-xl font-medium">Share your favorite opinion and win and wp <br> forum coffee
+                <p class="text-[#FFFFFFCC] text-xl font-medium">Share your favorite opinion and win and wp <br> forum
+                    coffee
                     mug!</p>
-                <div class="bg-white rounded-full w-[80%] p-1 flex justify-between">
-                    <input class="outline-none text-[#03071280] text-lg font-medium rounded-full pl-4" type="text" name="" id=""
-                        placeholder="Search here anything">
-                    <div><button class="btn bg-[#797DFC] hover:bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6">Search</button></div>
+                <div class="bg-white rounded-full w-[82%] p-1 flex justify-between">
+                    <input class="outline-none text-[#03071280] text-lg font-medium rounded-full pl-4" type="text"
+                        name="" id="search-field" placeholder="Search here anything">
+                    <div><button onclick="searchField()"
+                            class="btn bg-[#797DFC] hover:bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6">Search</button>
+                    </div>
                 </div>
             </div>
 
 
-            <div class="bg-[#fff] text-[#12132DCC]  font-medium text-2xl p-11 rounded-[32px] space-y-7">
-                <div class="flex justify-between"><p>Registered Users</p><p class="ml-16">01</p></div>
-                <div class="flex justify-between"><p>Forum</p> <p>05</p></div>
-                <div class="flex justify-between"><p>Topics</p> <p>01</p></div>
-                <div class="flex justify-between"><p>Replies</p> <p>02</p></div>
+            <div class="bg-[#fff] text-[#12132DCC]  font-medium text-2xl p-10 rounded-[32px] space-y-8 mt-3">
+                <div class="flex justify-between">
+                    <p>Registered Users</p>
+                    <p class="ml-16">01</p>
+                </div>
+                <div class="flex justify-between">
+                    <p>Forum</p>
+                    <p>05</p>
+                </div>
+                <div class="flex justify-between">
+                    <p>Topics</p>
+                    <p>01</p>
+                </div>
+                <div class="flex justify-between">
+                    <p>Replies</p>
+                    <p>02</p>
+                </div>
             </div>
-
         </div>
-
     </header>
+
     <main class="container mx-auto px-16 ">
+
+        <!-- lets discuss -->
+        <section class="space-y-7 border-4 border-red-500">
+            <div class="text-center mt-[100px] space-y-6">
+                <h1 class="font-black text-4xl">Let’s Discuss</h1>
+                <p class="text-[#12132D99] text-lg">Yes, you can run unit tests and view the results directly within the
+                    app. The integrated testing features allow for a streamlined .</p>
+            </div>
+            <div class="  flex gap-6">
+                <div id="posts-container">
+
+                </div>
+
+                <div class="w-[35%] p-6 bg-[#12132D0D] rounded-3xl shadow-xl space-y-5">
+                    <div class="flex justify-between ">
+                        <h1 class="font-bold text-[#12132D] text-xl">Title</h1>
+                        <div class="flex items-center gap-2">
+                            <img src="images/Frame (9).png" alt="">
+                            <p class="text-[#12132D99] mt-1 mb-3">Mark as read (<span id="mark-count"
+                                    class="font-bold text-black">0</span>)</p>
+                        </div>
+                    </div>
+
+
+
+                    <div id="title-container">
+                        <!-- <div class="flex items-center gap-2  p-4 bg-white shadow-xl rounded-lg">
+                            <h1 class="font-semibold text-sm text-[#12132D]">10 Kids Unaware of Their Halloween Costume
+                            </h1>
+                            <img src="images/tabler-icon-eye.png" alt=""><span class="">560</span>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
 
         <!-- join our forum -->
         <section>
-           <div class="flex  items-center justify-between pl-20 py-16 pr-10 bg-[#12132D] rounded-[32px]">
-            <div class="space-y-6">
-                <h2 class="text-white font-black text-4xl">Join Our Forum</h2>
-                <p class="text-[#FFFFFFCC]">Share your favorite opinion and win and wp forum coffee mug! Yes, you can <br> run unit tests and view the results directly within the app. </p>
-                <button class="btn bg-[#797DFC] hover:bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6 border-none">Registered Now</button>
+            <div class="flex  items-center justify-between pl-20 py-16 pr-10 bg-[#12132D] rounded-[32px] mt-[100px]">
+                <div class="space-y-6">
+                    <h2 class="text-white font-black text-4xl">Join Our Forum</h2>
+                    <p class="text-[#FFFFFFCC]">Share your favorite opinion and win and wp forum coffee mug! Yes, you
+                        can <br> run unit tests and view the results directly within the app. </p>
+                    <button
+                        class="btn bg-[#797DFC] hover:bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6 border-none">Registered
+                        Now</button>
+                </div>
+                <div><img src="images/joinforum.png" alt=""></div>
             </div>
-            <div><img src="images/joinforum.png" alt=""></div>
-           </div>
         </section>
 
     </main>
-    <footer class="py-[90px] text-center px-16 bg-[#12132D0D] space-y-6">
+    <footer class="py-[85px] text-center px-16 bg-[#12132D0D] space-y-6">
         <div class="flex justify-center">
             <img src="Images/logo.png" alt="">
 
         </div>
-        <p class="px-[190px] ">we started their journey with new thinking for better service to the tourist with competitive price. We professionally started their journey 2015 but our professionals are worked this sector last 15 years with dignity. After a long journey with experience we started this company. </p>
-     
+        <p class="px-[190px] ">we started their journey with new thinking for better service to the tourist with
+            competitive price. We professionally started their journey 2015 but our professionals are worked this sector
+            last 15 years with dignity. After a long journey with experience we started this company. </p>
+
         <div class="py-6 text-4xl space-x-6">
             <a href=""><i style="color: skyblue;" class="fa-brands fa-twitter"></i></a>
-            <a href=""><i style="color:  blue ;"class="fa-brands fa-facebook"></i></a>
-            <a href=""><i style="color:violet ;"class="fa-brands fa-instagram"></i></a>
-            <a href=""><i style="color:purple;"  class="fa-brands fa-github"></i></a>
+            <a href=""><i style="color:  blue ;" class="fa-brands fa-facebook"></i></a>
+            <a href=""><i style="color:violet ;" class="fa-brands fa-instagram"></i></a>
+            <a href=""><i style="color:purple;" class="fa-brands fa-github"></i></a>
         </div>
         <div class="border-dashed border-[#0307124D] border-[1px]"></div>
         <p class="pt-10"> <span>&#169 2024, All Rights Reserved</span></p>
