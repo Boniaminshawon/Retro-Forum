@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro-Forum</title>
     <link rel="stylesheet" href="styles/style.css">
+    <script src="https://kit.fontawesome.com/d5ee1009c3.js" crossorigin="anonymous"></script>
 
 
     <!-- daisyUI and tailwind link -->
@@ -13,8 +14,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="font-mulish border-4 border-black">
-    <header class="container mx-auto border-4 border-blue-500 ">
+<body class="font-mulish container mx-auto border-4 border-black">
+    <header class="container mx-auto px-16 border-4 border-blue-500 ">
         <nav class=" py-1">
             <div class="navbar bg-base-100">
                 <div class="navbar-start">
@@ -70,30 +71,30 @@
                         </div>
                     </ul>
                 </div>
-                <div class="">
+                <div class="mr-3">
                     <a class="btn bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6  hover:bg-[#797DFC]">Sign
                         In</a>
                 </div>
             </div>
         </nav>
         <div
-            class="min-h-scree border-4 border-red-600 rounded-[32px] bg-[url('images/bgbanner.png')] bg-bottom bg-contain  bg-no-repeat bg-[#12132D] flex justify-between items-center px-[100px] py-[110px]">
+            class="min-h-scree border-4 border-red-600 rounded-[32px] bg-[url('images/bgbanner.png')] bg-bottom bg-contain  bg-no-repeat bg-[#12132D] flex justify-between items-center px-[70px] py-[100px]">
 
-            <div class="space-y-9">
-                <h1 class="text-white text-[64px] font-black">Welcome to the <br><span class="text-[#797DFC]">ReTro</span>
+            <div class="space-y-8">
+                <h1 class="text-white text-[60px] font-black">Welcome to the <br><span class="text-[#797DFC]">ReTro</span>
                     Forum</h1>
                 <p class="text-[#FFFFFFCC] text-xl font-medium">Share your favorite opinion and win and wp <br> forum coffee
                     mug!</p>
                 <div class="bg-white rounded-full w-[80%] p-1 flex justify-between">
                     <input class="outline-none text-[#03071280] text-lg font-medium rounded-full pl-4" type="text" name="" id=""
                         placeholder="Search here anything">
-                    <button class="btn bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6">Search</button>
+                    <div><button class="btn bg-[#797DFC] hover:bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6">Search</button></div>
                 </div>
             </div>
 
 
-            <div class="bg-[#fff] text-[#12132DCC]  flex- font-medium text-2xl p-12 rounded-[32px] space-y-7">
-                <div class="flex justify-between"><p>Registered Users</p><p class="ml-20">01</p></div>
+            <div class="bg-[#fff] text-[#12132DCC]  font-medium text-2xl p-11 rounded-[32px] space-y-7">
+                <div class="flex justify-between"><p>Registered Users</p><p class="ml-16">01</p></div>
                 <div class="flex justify-between"><p>Forum</p> <p>05</p></div>
                 <div class="flex justify-between"><p>Topics</p> <p>01</p></div>
                 <div class="flex justify-between"><p>Replies</p> <p>02</p></div>
@@ -102,10 +103,36 @@
         </div>
 
     </header>
-    <main class="container mx-auto">
+    <main class="container mx-auto px-16 ">
+
+        <!-- join our forum -->
+        <section>
+           <div class="flex  items-center justify-between pl-20 py-16 pr-10 bg-[#12132D] rounded-[32px]">
+            <div class="space-y-6">
+                <h2 class="text-white font-black text-4xl">Join Our Forum</h2>
+                <p class="text-[#FFFFFFCC]">Share your favorite opinion and win and wp forum coffee mug! Yes, you can <br> run unit tests and view the results directly within the app. </p>
+                <button class="btn bg-[#797DFC] hover:bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6 border-none">Registered Now</button>
+            </div>
+            <div><img src="images/joinforum.png" alt=""></div>
+           </div>
+        </section>
 
     </main>
-    <footer>
+    <footer class="py-[90px] text-center px-16 bg-[#12132D0D] space-y-6">
+        <div class="flex justify-center">
+            <img src="Images/logo.png" alt="">
+
+        </div>
+        <p class="px-[190px] ">we started their journey with new thinking for better service to the tourist with competitive price. We professionally started their journey 2015 but our professionals are worked this sector last 15 years with dignity. After a long journey with experience we started this company. </p>
+     
+        <div class="py-6 text-4xl space-x-6">
+            <a href=""><i style="color: skyblue;" class="fa-brands fa-twitter"></i></a>
+            <a href=""><i style="color:  blue ;"class="fa-brands fa-facebook"></i></a>
+            <a href=""><i style="color:violet ;"class="fa-brands fa-instagram"></i></a>
+            <a href=""><i style="color:purple;"  class="fa-brands fa-github"></i></a>
+        </div>
+        <div class="border-dashed border-[#0307124D] border-[1px]"></div>
+        <p class="pt-10"> <span>&#169 2024, All Rights Reserved</span></p>
 
     </footer>
 
