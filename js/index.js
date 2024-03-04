@@ -50,9 +50,9 @@ const allPost = async (searchText) => {
                      <div class="flex justify-between mt-5">
                     
                         <div class="flex gap-3 justify-between text-[#12132D99]">
-                        <img  src="images/tabler-icon-message-2.png" alt=""><span class="mr-3">${post.comment_count}</span>
-                        <img class="ml-3" src="images/tabler-icon-eye.png" alt=""><span class="">${post.view_count}</span>
-                        <img class="ml-3" src="images/tabler-icon-clock-hour-9.png" alt=""><span> ${post.posted_time} min</span>
+                        <img  src="images/tabler-icon-message-2.png" alt=""><span class="lg:mr-3">${post.comment_count}</span>
+                        <img class="lg:ml-3" src="images/tabler-icon-eye.png" alt=""><span class="">${post.view_count}</span>
+                        <img class="lg:ml-3" src="images/tabler-icon-clock-hour-9.png" alt=""><span> ${post.posted_time} min</span>
 
                           </div>
                           <button onclick="postClick(${post.id})" class="text-end  lg:ml-[260px] "><img src="images/email 1.png" alt=""></button>
@@ -83,7 +83,7 @@ const postClick = (id) => {
       div.innerHTML = `
       <div class="flex justify-between items-center gap-2 mb-3 lg:mb-4 p-4 bg-white shadow-2xl rounded-lg">
       <h1 class="font-semibold text-sm text-[#12132D]">${posts.title}</h1>
-      <div class"flex"> <img src="images/tabler-icon-eye.png" alt=""><p class="">${posts.view_count}</p></div>
+      <div class="flex justify-between "><img src="images/tabler-icon-eye.png" alt=""><p class="">${posts.view_count}</p></div>
     </div>
       `
       titleContainer.appendChild(div);
