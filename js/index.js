@@ -2,8 +2,11 @@
 
 let markReadCount = 0;
 const titleContainer = document.getElementById('title-container');
+const loadingSpinner = document.getElementById('loading-spinner');
+loadingSpinner.classList.remove('hidden');
 
 const allPost = async (searchText) => {
+
   const response = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`);
   const data = await response.json();
   const posts = data.posts;
@@ -11,15 +14,30 @@ const allPost = async (searchText) => {
   // console.log(posts)
 
   const postsContainer = document.getElementById('posts-container');
-  postsContainer.textContent='';
-  posts.forEach(post => {
-    
-    
-    const div = document.createElement('div');
-    div.innerHTML = `
+  postsContainer.textContent = '';
+
+
+  setTimeout(() => {
+    document.getElementById('title-box').classList.remove('hidden');
+    posts.forEach(post => {
+
+      loadingSpinner.classList.add('hidden');
+      // console.log(post.isActive)
+      const activeStatus = document.getElementById('active-status');
+      // console.log(activeStatus)
+      if (post.isActive) {
+
+        // console.log(post?.isActive)
+        // console.log(activeStatus)
+
+      }
+      const div = document.createElement('div');
+      div.innerHTML = `
         <div  class=" flex mb-5 gap-5 bg-[#797dfc1a] p-10 border-[#797DFC] border-2 rounded-3xl shadow-xl">
-                    <div>
-                        <div class="  w-9"> <img class="rounded-lg" src=" ${post.image} " alt=""></div>
+                    <div class="relative">
+                    <div id="active-status" class="w-3 h-3 absolute right-[-3px] top-[-5px] rounded-full "></div>
+                        <div class="  w-10"> <img class="rounded-lg" src=" ${post.image} " alt=""></div>
+                        
                     </div>
                     <div class="">
                       <div class="flex space-x-10 text-[#12132DCC] font-medium">
@@ -37,15 +55,15 @@ const allPost = async (searchText) => {
                         <img class="ml-3" src="images/tabler-icon-clock-hour-9.png" alt=""><span> ${post.posted_time} min</span>
 
                           </div>
-                          <button onclick="postClick(${post.id})" class="text-end ml-[250px] "><img src="images/email 1.png" alt=""></button>
+                          <button onclick="postClick(${post.id})" class="text-end ml-[247px] "><img src="images/email 1.png" alt=""></button>
                      </div>
                     </div>
                 </div>
         `
-    postsContainer.appendChild(div);
+      postsContainer.appendChild(div);
+    });
 
-
-  });
+  }, 2000);
 }
 
 const postClick = (id) => {
@@ -54,13 +72,11 @@ const postClick = (id) => {
 
 
   fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
-  .then((res)=>res.json())
-  .then((data)=>{
-    const posts =data.posts.find((item)=> item.id=id);
+    .then((res) => res.json())
+    .then((data) => {
+      const posts = data.posts.find((item) => item.id = id);
 
-console.log(posts)
-
-    
+      // console.log(posts)
 
 
       const div = document.createElement('div');
@@ -70,21 +86,83 @@ console.log(posts)
       <img src="images/tabler-icon-eye.png" alt=""><span class="">${posts.view_count}</span>
     </div>
       `
-    titleContainer.appendChild(div);
-  });
+      titleContainer.appendChild(div);
+    });
 }
 
-const searchField = ()=>{
-  const searchText  = document.getElementById('search-field').value;
- 
-  if(searchText){
-    allPost('searchText')
+const searchField = () => {
+  loadingSpinner.classList.remove('hidden');
+  const searchText = document.getElementById('search-field').value;
+  console.log(searchText)
+
+  if (searchText) {
+    allPost(searchText)
   }
-  else{
+  else {
     alert('Please provide the right text');
   }
 
 }
+
+// setTimeout(() => {
+//    document.getElementById('title-box').classList.remove('hidden')
+//   allPost('');
+// },2000);
+
+const latestPost = async () => {
+  const response = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const data = await response.json();
+  const posts = data;
+
+  const latestPostContainer = document.getElementById('latest-post-container');
+  posts.forEach(post => {
+    console.log(post.author)
+    const div = document.createElement('div');
+    div.innerHTML = `
+    <div class="card  bg-base-100 shadow-xl border border-[#12132D26]">
+                    <figure class="p-7 ">
+                      <img src="${post.cover_image}" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="p-6 pt-0 space-y-4 ">
+                        <div class="flex gap-2">
+                            <img src="images/Frame (10).png" alt="">
+                            <p class="text-[#12132D99]">${post.author?.posted_date||'No Publish Date'}</p>
+                        </div>
+                      <h2 class=" card-title font-extrabold text-lg text-[#12132D]">${post.title}</h2>
+                      <p class="text-[#12132D99]">${post.description} </p>
+                      <div class="flex gap-3">
+                        <img class="w-12 h-12 rounded-full" src="${post.profile_image}" alt="">
+
+                        <div class="">
+                          <h2 class="text-[#12132D] font-bold">${post.author.name}</h2>
+                          <p class="text-[#12132D99]">${post.author?.designation  || 'Unknown'}</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+    `
+    latestPostContainer.appendChild(div);
+
+  })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+latestPost();
 
 allPost('');
 

@@ -88,7 +88,7 @@
                     coffee
                     mug!</p>
                 <div class="bg-white rounded-full w-[82%] p-1 flex justify-between">
-                    <input class="outline-none text-[#03071280] text-lg font-medium rounded-full pl-4" type="text"
+                    <input class="outline-none  text-[#03071280] text-lg font-medium rounded-full pl-4" type="text"
                         name="" id="search-field" placeholder="Search here anything">
                     <div><button onclick="searchField()"
                             class="btn bg-[#797DFC] hover:bg-[#797DFC] text-white rounded-3xl font-bold text-xl px-6">Search</button>
@@ -127,12 +127,21 @@
                 <p class="text-[#12132D99] text-lg">Yes, you can run unit tests and view the results directly within the
                     app. The integrated testing features allow for a streamlined .</p>
             </div>
+
+            <!-- loading spinner -->
+            <div id="loading-spinner" class="text-center hidden">
+                <span class="loading loading-bars loading-xs"></span>
+                <span class="loading loading-bars loading-sm"></span>
+                <span class="loading loading-bars loading-md"></span>
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
+
             <div class="  flex gap-6">
                 <div id="posts-container">
 
                 </div>
 
-                <div class="w-[35%] p-6 bg-[#12132D0D] rounded-3xl shadow-xl space-y-5">
+                <div id="title-box" class=" flex-1 p-6 bg-[#12132D0D] rounded-3xl shadow-xl hidden space-y-5">
                     <div class="flex justify-between ">
                         <h1 class="font-bold text-[#12132D] text-xl">Title</h1>
                         <div class="flex items-center gap-2">
@@ -156,16 +165,6 @@
         </section>
 
 
-
-
-
-
-
-
-
-
-
-
         <!-- join our forum -->
         <section>
             <div class="flex  items-center justify-between pl-20 py-16 pr-10 bg-[#12132D] rounded-[32px] mt-[100px]">
@@ -178,6 +177,19 @@
                         Now</button>
                 </div>
                 <div><img src="images/joinforum.png" alt=""></div>
+            </div>
+        </section>
+
+        <!-- latest post -->
+        <section class="space-y-7 border-4 border-red-500">
+            <div class="text-center mt-[100px] space-y-6">
+                <h1 class="font-black text-4xl">Let’s Discuss</h1>
+                <p class="text-[#12132D99] text-lg">Yes, you can run unit tests and view the results directly within the
+                    app. The integrated testing features allow for a streamlined .</p>
+            </div>
+
+            <div id="latest-post-container" class=" grid grid-cols-1 lg:grid-cols-3 gap-6">
+              
             </div>
         </section>
 
