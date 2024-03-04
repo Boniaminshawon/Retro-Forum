@@ -23,7 +23,7 @@ const allPost = async (searchText) => {
 
       loadingSpinner.classList.add('hidden');
       // console.log(post.isActive)
-      const activeStatus = document.getElementById('active-status');
+      // const activeStatus = document.getElementById('active-status');
       // console.log(activeStatus)
       if (post.isActive) {
 
@@ -33,9 +33,9 @@ const allPost = async (searchText) => {
       }
       const div = document.createElement('div');
       div.innerHTML = `
-        <div  class=" flex mb-5 gap-5 bg-[#797dfc1a] p-10 border-[#797DFC] border-2 rounded-3xl shadow-xl">
+        <div  class=" flex mt-5 gap-5 bg-[#797dfc1a] p-10 border-[#797DFC] border-2 rounded-3xl shadow-xl">
                     <div class="relative">
-                    <div id="active-status" class="w-3 h-3 absolute right-[-3px] top-[-5px] rounded-full "></div>
+                    <div id="active-status" class="w-3 h-3 absolute right-[-3px] top-[-5px] rounded-full bg-[green]"></div>
                         <div class="  w-10"> <img class="rounded-lg" src=" ${post.image} " alt=""></div>
                         
                     </div>
@@ -55,7 +55,7 @@ const allPost = async (searchText) => {
                         <img class="ml-3" src="images/tabler-icon-clock-hour-9.png" alt=""><span> ${post.posted_time} min</span>
 
                           </div>
-                          <button onclick="postClick(${post.id})" class="text-end ml-[247px] "><img src="images/email 1.png" alt=""></button>
+                          <button onclick="postClick(${post.id})" class="text-end  lg:ml-[260px] "><img src="images/email 1.png" alt=""></button>
                      </div>
                     </div>
                 </div>
@@ -74,16 +74,16 @@ const postClick = (id) => {
   fetch('https://openapi.programming-hero.com/api/retro-forum/posts')
     .then((res) => res.json())
     .then((data) => {
-      const posts = data.posts.find((item) => item.id = id);
+      const posts = data.posts.find((item) => item.id == id);
 
       // console.log(posts)
 
 
       const div = document.createElement('div');
       div.innerHTML = `
-      <div class="flex items-center gap-2 mb-4 p-4 bg-white shadow-2xl rounded-lg">
+      <div class="flex justify-between items-center gap-2 mb-3 lg:mb-4 p-4 bg-white shadow-2xl rounded-lg">
       <h1 class="font-semibold text-sm text-[#12132D]">${posts.title}</h1>
-      <img src="images/tabler-icon-eye.png" alt=""><span class="">${posts.view_count}</span>
+      <div class"flex"> <img src="images/tabler-icon-eye.png" alt=""><p class="">${posts.view_count}</p></div>
     </div>
       `
       titleContainer.appendChild(div);
@@ -91,16 +91,22 @@ const postClick = (id) => {
 }
 
 const searchField = () => {
-  loadingSpinner.classList.remove('hidden');
-  const searchText = document.getElementById('search-field').value;
-  console.log(searchText)
 
-  if (searchText) {
-    allPost(searchText)
+  const searchText = document.getElementById('search-field');
+  const searchValue = searchText.value;
+
+  if (searchValue) {
+    loadingSpinner.classList.remove('hidden');
+    allPost(searchValue);
   }
   else {
-    alert('Please provide the right text');
+    loadingSpinner.classList.remove('hidden');
+    allPost('')
+    setTimeout(() => {
+      alert('Please provide the right text');
+    }, 2000);
   }
+  searchText.value = '';
 
 }
 
@@ -116,7 +122,7 @@ const latestPost = async () => {
 
   const latestPostContainer = document.getElementById('latest-post-container');
   posts.forEach(post => {
-    console.log(post.author)
+
     const div = document.createElement('div');
     div.innerHTML = `
     <div class="card  bg-base-100 shadow-xl border border-[#12132D26]">
@@ -126,16 +132,16 @@ const latestPost = async () => {
                     <div class="p-6 pt-0 space-y-4 ">
                         <div class="flex gap-2">
                             <img src="images/Frame (10).png" alt="">
-                            <p class="text-[#12132D99]">${post.author?.posted_date||'No Publish Date'}</p>
+                            <p class="text-[#12132D99]">${post.author?.posted_date || 'No Publish Date'}</p>
                         </div>
                       <h2 class=" card-title font-extrabold text-lg text-[#12132D]">${post.title}</h2>
                       <p class="text-[#12132D99]">${post.description} </p>
-                      <div class="flex gap-3">
+                      <div class="flex gap-3 ">
                         <img class="w-12 h-12 rounded-full" src="${post.profile_image}" alt="">
 
                         <div class="">
                           <h2 class="text-[#12132D] font-bold">${post.author.name}</h2>
-                          <p class="text-[#12132D99]">${post.author?.designation  || 'Unknown'}</p>
+                          <p class="text-[#12132D99]">${post.author?.designation || 'Unknown'}</p>
                         </div>
                     </div>
                     </div>
@@ -146,21 +152,6 @@ const latestPost = async () => {
   })
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 latestPost();
 
